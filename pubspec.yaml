@@ -30,3 +30,8 @@ flutter:
         fileName: worldtime.dart
       macos:
         pluginClass: WorldtimePlugin
+      windows:
+        pluginClass: WorldtimePlugin
+      linux:
+        pluginClass: WorldtimePlugin
+
