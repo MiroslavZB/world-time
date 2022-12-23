@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Todo App Demo',
+      title: 'World Time Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -39,7 +39,6 @@ class _HomePageState extends State<HomePage> {
   DateTime now = DateTime(1990);
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     longController.dispose();
     latController.dispose();

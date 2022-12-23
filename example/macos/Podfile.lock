@@ -1,16 +1,22 @@
 PODS:
   - FlutterMacOS (1.0.0)
+  - worldtime (1.0.1):
+    - FlutterMacOS
 
 DEPENDENCIES:
   - FlutterMacOS (from `Flutter/ephemeral`)
+  - worldtime (from `Flutter/ephemeral/.symlinks/plugins/worldtime/macos`)
 
 EXTERNAL SOURCES:
   FlutterMacOS:
     :path: Flutter/ephemeral
+  worldtime:
+    :path: Flutter/ephemeral/.symlinks/plugins/worldtime/macos
 
 SPEC CHECKSUMS:
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
+  worldtime: 1fd81ac25c74217d080dd682231f7af0a4edf0b3
 
-PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
+PODFILE CHECKSUM: a884f6dd3f7494f3892ee6c81feea3a3abbf9153
 
 COCOAPODS: 1.11.3
