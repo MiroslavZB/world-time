@@ -4,10 +4,10 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'worldtime'
-  s.version          = '1.0.0'
-  s.summary          = 'A new Flutter plugin project.'
+  s.version          = '1.0.1'
+  s.summary          = 'World Time Plugin'
   s.description      = <<-DESC
-A new Flutter plugin project.
+Package to get the World time by location or TZ time zone.
                        DESC
   s.homepage         = 'https://github.com/MiroslavZB/world-time.git'
   s.license          = { :file => '../LICENSE' }
