@@ -61,11 +61,13 @@ class _HomePageState extends State<HomePage> {
                 if (continent == '') ...[
                   Text(
                     'Result: ${now.toString()}',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Result formatted ${_worldtimePlugin.format(dateTime: now, formatter: '\\D/\\M/\\Y \\H:\\m')}',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Row(
                     children: [
@@ -80,9 +82,12 @@ class _HomePageState extends State<HomePage> {
                           style: const TextStyle(fontSize: 20),
                           keyboardType: TextInputType.number,
                           controller: longController
-                            ..selection = TextSelection.collapsed(offset: longController.text.length),
+                            ..selection = TextSelection.collapsed(
+                                offset: longController.text.length),
                           decoration: const InputDecoration(
-                              border: InputBorder.none, counter: Offstage(), hintText: 'longitude'),
+                              border: InputBorder.none,
+                              counter: Offstage(),
+                              hintText: 'longitude'),
                           onChanged: (newValue) {
                             final double val = double.tryParse(newValue) ?? 0;
                             setState(() {
@@ -95,7 +100,8 @@ class _HomePageState extends State<HomePage> {
                       TextButton(
                         onPressed: () async {
                           FocusManager.instance.primaryFocus?.unfocus();
-                          DateTime newDate = await _worldtimePlugin.timeByLocation(latitude: lat, longitude: long);
+                          DateTime newDate = await _worldtimePlugin
+                              .timeByLocation(latitude: lat, longitude: long);
                           setState(() {
                             now = newDate;
                           });
@@ -130,9 +136,12 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           controller: latController
-                            ..selection = TextSelection.collapsed(offset: latController.text.length),
+                            ..selection = TextSelection.collapsed(
+                                offset: latController.text.length),
                           decoration: const InputDecoration(
-                              border: InputBorder.none, counter: Offstage(), hintText: 'latitude'),
+                              border: InputBorder.none,
+                              counter: Offstage(),
+                              hintText: 'latitude'),
                         ),
                       ),
                     ],
@@ -207,7 +216,8 @@ class _HomePageState extends State<HomePage> {
                             (e) => InkWell(
                               onTap: () async {
                                 setState(() => zone = e);
-                                DateTime newDate = await _worldtimePlugin.timeByCity('$continent/$zone');
+                                DateTime newDate = await _worldtimePlugin
+                                    .timeByCity('$continent/$zone');
                                 setState(() {
                                   now = newDate;
                                 });
@@ -227,7 +237,8 @@ class _HomePageState extends State<HomePage> {
                                 height: 50,
                                 decoration: BoxDecoration(
                                   color: Colors.lightBlueAccent,
-                                  border: Border.all(color: Colors.white, width: 2),
+                                  border:
+                                      Border.all(color: Colors.white, width: 2),
                                 ),
                                 child: Center(
                                   child: Text(

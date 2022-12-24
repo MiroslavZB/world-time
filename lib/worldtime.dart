@@ -1,9 +1,12 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const Map<String, String> headers = {'Content-type': 'application/json; charset=UTF-8'};
+const Map<String, String> headers = {
+  'Content-type': 'application/json; charset=UTF-8'
+};
 const String urlCity = 'https://www.timeapi.io/api/Time/current/zone?timeZone=';
-const String urlLocation = 'https://www.timeapi.io/api/Time/current/coordinate?';
+const String urlLocation =
+    'https://www.timeapi.io/api/Time/current/coordinate?';
 final defaultDateTime = DateTime(1990);
 
 class Worldtime {
@@ -32,7 +35,8 @@ class Worldtime {
   }
 
   /// Returns current time by given latitude, longitude.
-  Future<DateTime> timeByLocation({required double latitude, required double longitude}) async {
+  Future<DateTime> timeByLocation(
+      {required double latitude, required double longitude}) async {
     final String url = '${urlLocation}latitude=$latitude&longitude=$longitude';
     try {
       http.Response response = await http.get(
@@ -89,8 +93,11 @@ class Worldtime {
       '\\D': dateTime.day.toString(),
       '\\M': dateTime.month.toString(),
       '\\Y': dateTime.year.toString(),
-      '\\H': dateTime.hour >= 10 ? dateTime.hour.toString() : '0${dateTime.hour}',
-      '\\m': dateTime.minute >= 10 ? dateTime.minute.toString() : '0${dateTime.minute}',
+      '\\H':
+          dateTime.hour >= 10 ? dateTime.hour.toString() : '0${dateTime.hour}',
+      '\\m': dateTime.minute >= 10
+          ? dateTime.minute.toString()
+          : '0${dateTime.minute}',
       '\\N': dateTime.millisecond >= 100
           ? dateTime.millisecond.toString()
           : dateTime.millisecond >= 10
