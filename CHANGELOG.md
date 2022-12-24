@@ -5,3 +5,7 @@
 ## 1.0.1
 
 <p> December 2022 - Updated Documentation and removed unused default dependency.</p>
+
+## 1.0.2
+
+<p> December 2022 - Improved documentation.</p>
