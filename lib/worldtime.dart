@@ -15,7 +15,9 @@ class Worldtime {
   /// Europe/Amsterdam
   /// America/Santiago
   /// Asia/Istanbul
-  /// list of all TZ formats: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+  ///
+  /// list of all TZ formats:
+  /// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
   Future<DateTime> timeByCity(String cityTZ) async {
     final String url = urlCity + cityTZ;
     try {
@@ -35,8 +37,10 @@ class Worldtime {
   }
 
   /// Returns current time by given latitude, longitude.
-  Future<DateTime> timeByLocation(
-      {required double latitude, required double longitude}) async {
+  Future<DateTime> timeByLocation({
+    required double latitude,
+    required double longitude,
+  }) async {
     final String url = '${urlLocation}latitude=$latitude&longitude=$longitude';
     try {
       http.Response response = await http.get(
@@ -69,7 +73,8 @@ class Worldtime {
   /// [o] - microsecond,
   /// Not all parameters must be present, only the ones you want to display.
   /// You can write anything in the formatter to personalize it.
-  /// The double \\ is to inform the function that the following character is a functional one instead of a text.
+  /// The double \\ is to inform the function
+  /// that the character after is a functional one instead of a text.
   ///
   /// Examples:
   /// ```dart
@@ -88,7 +93,10 @@ class Worldtime {
   /// print(format(dateTime, formatter)); // prints -> time - 14:30, date - 25/12/2022
   /// ```
 
-  String format({required DateTime dateTime, required String formatter}) {
+  String format({
+    required DateTime dateTime,
+    required String formatter,
+  }) {
     Map<String, String> keys = {
       '\\D': dateTime.day.toString(),
       '\\M': dateTime.month.toString(),
