@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - worldtime (1.0.3):
+  - worldtime (1.0.4):
     - Flutter
 
 DEPENDENCIES:
