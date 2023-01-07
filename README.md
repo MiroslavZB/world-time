@@ -9,7 +9,7 @@ It also includes an easy to use formatter for DateTime with customizable formatt
 2. Get current time from **Latitude** and **Longitude**.
 3. Format a **Flutter DateTime object** to a pretty _String formatted_ text to your liking.
 
-![Example Image](./assets/example.png)
+<image src = "./assets/example.png" width = "200px" alt = "Example Image"></image>
 
 # Short example code
 
