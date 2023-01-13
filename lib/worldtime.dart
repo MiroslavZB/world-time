@@ -68,7 +68,7 @@ class Worldtime {
   /// [M] - month,
   /// [Y] - year,
   /// [h] - hour,
-  /// [m] - minute,      // Note that it is a small 'm' (not capital 'M')
+  /// [m] - minute,      // Note that it is a small 'm' (not capital 'M' for month)
   /// [s] - second,
   /// [n] - millisecond,
   /// [o] - microsecond,
@@ -110,12 +110,12 @@ class Worldtime {
       '\\s': dateTime.second >= 10
           ? dateTime.second.toString()
           : '0${dateTime.second}',
-      '\\N': dateTime.millisecond >= 100
+      '\\n': dateTime.millisecond >= 100
           ? dateTime.millisecond.toString()
           : dateTime.millisecond >= 10
               ? '0${dateTime.millisecond}'
               : '00${dateTime.millisecond}',
-      '\\O': dateTime.microsecond >= 100
+      '\\o': dateTime.microsecond >= 100
           ? dateTime.microsecond.toString()
           : dateTime.microsecond >= 10
               ? '0${dateTime.microsecond}'
