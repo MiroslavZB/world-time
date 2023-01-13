@@ -1,4 +1,4 @@
-## 1.0.4
+## 1.0.5
 
 A Flutter package to get the time of a specific time zone or geo location.  
 It also includes an easy to use formatter for DateTime with customizable formatting.
@@ -9,7 +9,7 @@ It also includes an easy to use formatter for DateTime with customizable formatt
 2. Get current time from **Latitude** and **Longitude**.
 3. Format a **Flutter DateTime object** to a pretty _String formatted_ text to your liking.
 
-<image src = "./assets/example.png" width = "200px" alt = "Example Image"></image>
+![Example App](./assets/example.png)
 
 # Short example code
 
@@ -18,7 +18,7 @@ import 'package:worldtime/worldtime.dart';
 
 final _worldtimePlugin = Worldtime();
 
-final String myFormatter = 'time - \\H:\\m, date - \\D/\\M/\\Y';
+final String myFormatter = 'time - \\h:\\m, date - \\D/\\M/\\Y';
 
 final DateTime timeAmsterdamTZ = await _worldtimePlugin
     .timeByCity('Europe/Amsterdam');
@@ -50,7 +50,7 @@ final _worldtimePlugin = Worldtime();
 Create a formatter.
 
 ```
-final String myFormatter = 'time - \\H:\\m, date - \\D/\\M/\\Y';
+final String myFormatter = 'time - \\h:\\m, date - \\D/\\M/\\Y';
 ```
 
 ## Example with TZ Time Zone
@@ -89,7 +89,7 @@ final DateTime timeAmsterdamGeo = await _worldtimePlugin.
     );
 ```
 
-We will use the same formtter. ('time - \\H:\\m, date - \\D/\\M/\\Y')  
+We will use the same formtter. ('time - \\h:\\m, date - \\D/\\M/\\Y')  
 Put the value in a new variable.
 
 ```

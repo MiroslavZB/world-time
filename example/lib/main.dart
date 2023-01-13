@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Result formatted ${_worldtimePlugin.format(dateTime: now, formatter: '\\D/\\M/\\Y \\H:\\m')}',
+                    'Result formatted ${_worldtimePlugin.format(dateTime: now, formatter: '\\D/\\M/\\Y \\h:\\m')}',
                     style: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
@@ -85,9 +85,10 @@ class _HomePageState extends State<HomePage> {
                             ..selection = TextSelection.collapsed(
                                 offset: longController.text.length),
                           decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              counter: Offstage(),
-                              hintText: 'longitude'),
+                            border: InputBorder.none,
+                            counter: Offstage(),
+                            hintText: 'longitude',
+                          ),
                           onChanged: (newValue) {
                             final double val = double.tryParse(newValue) ?? 0;
                             setState(() {
@@ -139,9 +140,10 @@ class _HomePageState extends State<HomePage> {
                             ..selection = TextSelection.collapsed(
                                 offset: latController.text.length),
                           decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              counter: Offstage(),
-                              hintText: 'latitude'),
+                            border: InputBorder.none,
+                            counter: Offstage(),
+                            hintText: 'latitude',
+                          ),
                         ),
                       ),
                     ],

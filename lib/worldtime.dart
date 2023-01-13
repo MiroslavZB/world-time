@@ -61,14 +61,15 @@ class Worldtime {
   /// Returns a [String] representation of dateTime.
   /// The [formatter] parameter should look like this:
   /// ```dart
-  /// formatter = '\\D \\M \\Y \\H \\m \\N \\O';
+  /// formatter = '\\D \\M \\Y \\h \\m \\N \\O';
   /// ```
   /// where:
   /// [D] - day,
   /// [M] - month,
   /// [Y] - year,
-  /// [H] - hour,
+  /// [h] - hour,
   /// [m] - minute,      // Note that it is a small 'm' (not capital 'M')
+  /// [s] - second,
   /// [n] - millisecond,
   /// [o] - microsecond,
   /// Not all parameters must be present, only the ones you want to display.
@@ -83,13 +84,13 @@ class Worldtime {
   ///
   /// Example 1)
   /// ```dart
-  /// String formatter = 'today is \\Dth \\H : \\m';
+  /// String formatter = 'today is \\Dth \\h : \\m';
   /// print(format(dateTime, formatter)); // prints -> Today is 25th 14 : 30
   ///```
   ///
   /// Example 2)
   /// ```dart
-  /// String formatter = 'time - \\H:\\m, date - \\D/\\M/\\Y';
+  /// String formatter = 'time - \\h:\\m, date - \\D/\\M/\\Y';
   /// print(format(dateTime, formatter)); // prints -> time - 14:30, date - 25/12/2022
   /// ```
 
@@ -101,11 +102,14 @@ class Worldtime {
       '\\D': dateTime.day.toString(),
       '\\M': dateTime.month.toString(),
       '\\Y': dateTime.year.toString(),
-      '\\H':
+      '\\h':
           dateTime.hour >= 10 ? dateTime.hour.toString() : '0${dateTime.hour}',
       '\\m': dateTime.minute >= 10
           ? dateTime.minute.toString()
           : '0${dateTime.minute}',
+      '\\s': dateTime.second >= 10
+          ? dateTime.second.toString()
+          : '0${dateTime.second}',
       '\\N': dateTime.millisecond >= 100
           ? dateTime.millisecond.toString()
           : dateTime.millisecond >= 10

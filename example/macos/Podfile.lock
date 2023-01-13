@@ -1,6 +1,6 @@
 PODS:
   - FlutterMacOS (1.0.0)
-  - worldtime (1.0.4):
+  - worldtime (1.0.5):
     - FlutterMacOS
 
 DEPENDENCIES:
