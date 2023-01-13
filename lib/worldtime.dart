@@ -1,13 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const Map<String, String> headers = {
-  'Content-type': 'application/json; charset=UTF-8'
-};
-const String urlCity = 'https://www.timeapi.io/api/Time/current/zone?timeZone=';
-const String urlLocation =
-    'https://www.timeapi.io/api/Time/current/coordinate?';
-final defaultDateTime = DateTime(1990);
+import 'constants.dart';
 
 class Worldtime {
   /// returns current time at a set city in a TZ format.
@@ -18,6 +12,7 @@ class Worldtime {
   ///
   /// list of all TZ formats:
   /// https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+
   Future<DateTime> timeByCity(String cityTZ) async {
     final String url = urlCity + cityTZ;
     try {
@@ -64,8 +59,9 @@ class Worldtime {
   /// formatter = '\\D \\M \\Y \\h \\m \\N \\O';
   /// ```
   /// where:
+  /// [W] - weekday, [w] - weekday short
   /// [D] - day,
-  /// [M] - month,
+  /// [M] - month, [K] - month in String form, [L] - month in String form but shortened
   /// [Y] - year,
   /// [h] - hour,
   /// [m] - minute,      // Note that it is a small 'm' (not capital 'M' for month)
@@ -99,8 +95,14 @@ class Worldtime {
     required String formatter,
   }) {
     Map<String, String> keys = {
+      '\\W': weekday[dateTime.weekday],
+      '\\w': weekdayShort[dateTime.weekday],
       '\\D': dateTime.day.toString(),
-      '\\M': dateTime.month.toString(),
+      '\\M': dateTime.month >= 10
+          ? dateTime.month.toString()
+          : '0${dateTime.month}',
+      '\\K': monthsText[dateTime.month],
+      '\\L': monthsShort[dateTime.month],
       '\\Y': dateTime.year.toString(),
       '\\h':
           dateTime.hour >= 10 ? dateTime.hour.toString() : '0${dateTime.hour}',

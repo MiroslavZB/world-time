@@ -1,4 +1,4 @@
-## 1.0.6
+## 1.0.7
 
 A Flutter package to get the time of a specific time zone or geo location.  
 It also includes an easy to use formatter for DateTime with customizable formatting.
