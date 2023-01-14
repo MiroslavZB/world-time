@@ -15,3 +15,7 @@ January 2023 - Added **"Seconds"** to formatter
 January 2023 - Added **K** and **L** to formatter for text and short text format for _month_
              - Added **"0"** before Months with only one number
              - Added **W** and **w** to formatter to use _weekday_ and _short weekday_
+
+## 1.0.8
+
+January 2023 - Bug Fix
