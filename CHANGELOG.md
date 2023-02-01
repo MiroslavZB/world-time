@@ -19,3 +19,7 @@ January 2023 - Added **K** and **L** to formatter for text and short text format
 ## 1.0.8
 
 January 2023 - Bug Fix
+
+## 1.0.9
+
+January 2023 - Added **0** before days that are within the single digets. (ex. 3 becomes 03)

@@ -97,7 +97,7 @@ class Worldtime {
     Map<String, String> keys = {
       '\\W': weekday[dateTime.weekday - 1],
       '\\w': weekdayShort[dateTime.weekday - 1],
-      '\\D': dateTime.day.toString(),
+      '\\D': dateTime.day >= 10 ? dateTime.day.toString() : '0${dateTime.day}',
       '\\M': dateTime.month >= 10
           ? dateTime.month.toString()
           : '0${dateTime.month}',
