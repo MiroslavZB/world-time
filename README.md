@@ -1,4 +1,4 @@
-## 1.0.9
+## 1.1.0
 
 A Flutter package to get the time of a specific time zone or geo location.  
 It also includes an easy to use formatter for DateTime with customizable formatting.
@@ -27,10 +27,10 @@ final DateTime timeAmsterdamGeo = await _worldtimePlugin
     .timeByLocation(latitude: 52.3676, longitude: 4.9041);
 
 final String resultTZ = _worldtimePlugin
-    .format(dateTime: timeAmsterdamTZ,formatter:myFormatter);
+    .format(dateTime: timeAmsterdamTZ, formatter: myFormatter);
 
 final String resultGeo = _worldtimePlugin
-    .format(dateTime: timeAmsterdamGeo,formatter:myFormatter);
+    .format(dateTime: timeAmsterdamGeo, formatter: myFormatter);
 ```
 
 # Walk through
@@ -62,17 +62,11 @@ final DateTime timeAmsterdamTZ = await _worldtimePlugin
     .timeByCity('Europe/Amsterdam');
 ```
 
-Put the value in a new variable.
+Get and store the value:
 
 ``` dart
 final String resultTZ = _worldtimePlugin
     .format(dateTime: timeAmsterdamTZ,formatter:myFormatter);
-```
-
-Print the variable.
-
-``` dart
-print(result);
 ```
 
 ## Example with Coordinates
@@ -89,8 +83,9 @@ final DateTime timeAmsterdamGeo = await _worldtimePlugin.
     );
 ```
 
-We will use the same formtter. ('time - \\h:\\m, date - \\D/\\M/\\Y')  
-Put the value in a new variable.
+We will use the same formatter. ('time - \\h:\\m, date - \\D/\\M/\\Y')  
+
+Get and store the value:
 
 ``` dart
 final String resultGeo = _worldtimePlugin.
@@ -98,10 +93,4 @@ final String resultGeo = _worldtimePlugin.
         dateTime: timeAmsterdamGeo,
         formatter:myFormatter,
     );
-```
-
-Print the variable.
-
-``` dart
-print(resultGeo);
 ```
