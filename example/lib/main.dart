@@ -60,7 +60,10 @@ class _HomePageState extends State<HomePage> {
                 if (continent == '') ...[
                   Text(
                     'Result: ${now.toString()}',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     'Result formatted ${_worldtimePlugin.format(dateTime: now, formatter: '\\D/\\M/\\Y \\h:\\m')}',
