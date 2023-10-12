@@ -1,25 +1,30 @@
-## 1.0.0
+## 1.1.0
 
-December 2022 - The package was created.
+ - Requires Dart 3.0 or later.
+ - Changed http dependency to support the latest version of http
 
-## 1.0.1 - 1.0.5
+## 1.0.9
 
-December 2022 - Improved documentation.
-
-## 1.0.6
-
-January 2023 - Added **"Seconds"** to formatter
-
-## 1.0.7
-
-January 2023 - Added **K** and **L** to formatter for text and short text format for _month_
-             - Added **"0"** before Months with only one number
-             - Added **W** and **w** to formatter to use _weekday_ and _short weekday_
+ - Added **0** before days that are within the single digits. (ex. 3 becomes 03)
 
 ## 1.0.8
 
 January 2023 - Bug Fix
 
-## 1.0.9
+## 1.0.7
 
-January 2023 - Added **0** before days that are within the single digets. (ex. 3 becomes 03)
+ - Added **K** and **L** to formatter for text and short text format for _month_
+ - Added **"0"** before Months with only one number
+ - Added **W** and **w** to formatter to use _weekday_ and _short weekday_
+
+## 1.0.6
+
+- Added **"Seconds"** to formatter
+
+## 1.0.1 - 1.0.5
+
+ - Improved documentation.
+
+## 1.0.0
+
+December 2022 - The package was created.
