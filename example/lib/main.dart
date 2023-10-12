@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController longController = TextEditingController();
   final TextEditingController latController = TextEditingController();
   DateTime now = DateTime(1990);
+
   @override
   void dispose() {
     super.dispose();
@@ -50,9 +51,7 @@ class _HomePageState extends State<HomePage> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: const Text('World Time Example App'),
-        ),
+        appBar: AppBar(title: const Text('World Time Example App')),
         body: Padding(
           padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: SingleChildScrollView(
@@ -61,13 +60,14 @@ class _HomePageState extends State<HomePage> {
                 if (continent == '') ...[
                   Text(
                     'Result: ${now.toString()}',
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Result formatted ${_worldtimePlugin.format(dateTime: now, formatter: '\\D/\\M/\\Y \\h:\\m')}',
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Row(
                     children: [
@@ -82,8 +82,7 @@ class _HomePageState extends State<HomePage> {
                           style: const TextStyle(fontSize: 20),
                           keyboardType: TextInputType.number,
                           controller: longController
-                            ..selection = TextSelection.collapsed(
-                                offset: longController.text.length),
+                            ..selection = TextSelection.collapsed(offset: longController.text.length),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
                             counter: Offstage(),
@@ -91,9 +90,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onChanged: (newValue) {
                             final double val = double.tryParse(newValue) ?? 0;
-                            setState(() {
-                              long = val < -90 || val > 90 ? 0 : val;
-                            });
+                            setState(() => long = val < -90 || val > 90 ? 0 : val);
                           },
                         ),
                       ),
@@ -101,21 +98,19 @@ class _HomePageState extends State<HomePage> {
                       TextButton(
                         onPressed: () async {
                           FocusManager.instance.primaryFocus?.unfocus();
-                          DateTime newDate = await _worldtimePlugin
-                              .timeByLocation(latitude: lat, longitude: long);
-                          setState(() {
-                            now = newDate;
-                          });
-                          if (!context.mounted) return;
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                now != DateTime(1990)
-                                    ? 'Time at long: $long, lat: $lat is : $now'
-                                    : 'An Error occurred!',
+                          DateTime newDate = await _worldtimePlugin.timeByLocation(latitude: lat, longitude: long);
+                          setState(() => now = newDate);
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  now != DateTime(1990)
+                                      ? 'Time at long: $long, lat: $lat is : $now'
+                                      : 'An Error occurred!',
+                                ),
                               ),
-                            ),
-                          );
+                            );
+                          }
                         },
                         child: const Text('Go'),
                       ),
@@ -123,22 +118,17 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: MediaQuery.of(context).size.width / 2 - 80,
                         padding: const EdgeInsets.only(left: 5),
-                        decoration: BoxDecoration(
-                          border: Border.all(width: 2),
-                        ),
+                        decoration: BoxDecoration(border: Border.all(width: 2)),
                         child: TextField(
                           maxLength: 20,
                           style: const TextStyle(fontSize: 20),
                           keyboardType: TextInputType.number,
                           onChanged: (newValue) {
                             final double val = double.tryParse(newValue) ?? 0;
-                            setState(() {
-                              lat = val < -90 || val > 90 ? 0 : val;
-                            });
+                            setState(() => lat = val < -90 || val > 90 ? 0 : val);
                           },
                           controller: latController
-                            ..selection = TextSelection.collapsed(
-                                offset: latController.text.length),
+                            ..selection = TextSelection.collapsed(offset: latController.text.length),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
                             counter: Offstage(),
@@ -148,10 +138,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  const Text(
-                    'Choose an area',
-                    style: TextStyle(fontSize: 28),
-                  ),
+                  const Text('Choose an area', style: TextStyle(fontSize: 28)),
                   SizedBox(
                     height: MediaQuery.of(context).size.height - 200,
                     child: GridView.count(
@@ -192,8 +179,8 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       color: Colors.blueGrey,
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Padding(
                             padding: EdgeInsets.only(right: 20),
                             child: Icon(
@@ -218,29 +205,27 @@ class _HomePageState extends State<HomePage> {
                             (e) => InkWell(
                               onTap: () async {
                                 setState(() => zone = e);
-                                DateTime newDate = await _worldtimePlugin
-                                    .timeByCity('$continent/$zone');
-                                setState(() {
-                                  now = newDate;
-                                });
-                                if (!context.mounted) return;
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      now != DateTime(1990)
-                                          ? 'Time in $continent/$zone is : $now'
-                                          : 'An Error occurred!',
+                                DateTime newDate = await _worldtimePlugin.timeByCity('$continent/$zone');
+                                setState(() => now = newDate);
+
+                                if (context.mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        now != DateTime(1990)
+                                            ? 'Time in $continent/$zone is : $now'
+                                            : 'An Error occurred!',
+                                      ),
                                     ),
-                                  ),
-                                );
+                                  );
+                                }
                               },
                               child: Container(
                                 width: 100,
                                 height: 50,
                                 decoration: BoxDecoration(
                                   color: Colors.lightBlueAccent,
-                                  border:
-                                      Border.all(color: Colors.white, width: 2),
+                                  border: Border.all(color: Colors.white, width: 2),
                                 ),
                                 child: Center(
                                   child: Text(
@@ -265,19 +250,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-}
-
-/// Used to ensure context is still active before displaying the messenger.
-extension BuildContextMounted on BuildContext {
-  bool get mounted {
-    try {
-      (this as Element).widget;
-      return true;
-      // Widget get widget => _widget! inside Element will throw if it's not mounted anymore
-    } on TypeError catch (_) {
-      return false;
-    }
   }
 }
 
