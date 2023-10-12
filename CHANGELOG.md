@@ -9,7 +9,7 @@
 
 ## 1.0.8
 
-January 2023 - Bug Fix
+ - Bug Fix
 
 ## 1.0.7
 
@@ -27,4 +27,4 @@ January 2023 - Bug Fix
 
 ## 1.0.0
 
-December 2022 - The package was created.
+ - The package was created.
