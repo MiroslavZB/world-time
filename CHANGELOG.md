@@ -1,6 +1,6 @@
 ## 1.1.1
 
-    - Fixed abug with getting the month's text
+    - Fixed a bug with getting the month's text
     - Made accessing the texts lists safe
 ## 1.1.0
 
