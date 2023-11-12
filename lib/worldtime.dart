@@ -95,14 +95,14 @@ class Worldtime {
     required String formatter,
   }) {
     Map<String, String> keys = {
-      '\\W': weekday[dateTime.weekday - 1],
-      '\\w': weekdayShort[dateTime.weekday - 1],
+      '\\W': dateTime.weekday > 7 ? 'NAN' : weekday[dateTime.weekday - 1],
+      '\\w': dateTime.weekday > 7 ? 'NAN' : weekdayShort[dateTime.weekday - 1],
       '\\D': dateTime.day >= 10 ? dateTime.day.toString() : '0${dateTime.day}',
       '\\M': dateTime.month >= 10
           ? dateTime.month.toString()
           : '0${dateTime.month}',
-      '\\K': monthsText[dateTime.month],
-      '\\L': monthsShort[dateTime.month],
+      '\\K': dateTime.month > 12 ? 'NAN' : monthsText[dateTime.month - 1],
+      '\\L': dateTime.month > 12 ? 'NAN' : monthsShort[dateTime.month - 1],
       '\\Y': dateTime.year.toString(),
       '\\h':
           dateTime.hour >= 10 ? dateTime.hour.toString() : '0${dateTime.hour}',
