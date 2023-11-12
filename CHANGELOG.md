@@ -1,3 +1,7 @@
+## 1.1.1
+
+    - Fixed abug with getting the month's text
+    - Made accessing the texts lists safe
 ## 1.1.0
 
  - Requires Dart 3.0 or later.
