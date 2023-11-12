@@ -85,7 +85,8 @@ class _HomePageState extends State<HomePage> {
                           style: const TextStyle(fontSize: 20),
                           keyboardType: TextInputType.number,
                           controller: longController
-                            ..selection = TextSelection.collapsed(offset: longController.text.length),
+                            ..selection = TextSelection.collapsed(
+                                offset: longController.text.length),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
                             counter: Offstage(),
@@ -93,7 +94,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           onChanged: (newValue) {
                             final double val = double.tryParse(newValue) ?? 0;
-                            setState(() => long = val < -90 || val > 90 ? 0 : val);
+                            setState(
+                                () => long = val < -90 || val > 90 ? 0 : val);
                           },
                         ),
                       ),
@@ -101,7 +103,8 @@ class _HomePageState extends State<HomePage> {
                       TextButton(
                         onPressed: () async {
                           FocusManager.instance.primaryFocus?.unfocus();
-                          DateTime newDate = await _worldtimePlugin.timeByLocation(latitude: lat, longitude: long);
+                          DateTime newDate = await _worldtimePlugin
+                              .timeByLocation(latitude: lat, longitude: long);
                           setState(() => now = newDate);
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -128,10 +131,12 @@ class _HomePageState extends State<HomePage> {
                           keyboardType: TextInputType.number,
                           onChanged: (newValue) {
                             final double val = double.tryParse(newValue) ?? 0;
-                            setState(() => lat = val < -90 || val > 90 ? 0 : val);
+                            setState(
+                                () => lat = val < -90 || val > 90 ? 0 : val);
                           },
                           controller: latController
-                            ..selection = TextSelection.collapsed(offset: latController.text.length),
+                            ..selection = TextSelection.collapsed(
+                                offset: latController.text.length),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
                             counter: Offstage(),
@@ -208,7 +213,8 @@ class _HomePageState extends State<HomePage> {
                             (e) => InkWell(
                               onTap: () async {
                                 setState(() => zone = e);
-                                DateTime newDate = await _worldtimePlugin.timeByCity('$continent/$zone');
+                                DateTime newDate = await _worldtimePlugin
+                                    .timeByCity('$continent/$zone');
                                 setState(() => now = newDate);
 
                                 if (context.mounted) {
@@ -228,7 +234,8 @@ class _HomePageState extends State<HomePage> {
                                 height: 50,
                                 decoration: BoxDecoration(
                                   color: Colors.lightBlueAccent,
-                                  border: Border.all(color: Colors.white, width: 2),
+                                  border:
+                                      Border.all(color: Colors.white, width: 2),
                                 ),
                                 child: Center(
                                   child: Text(
