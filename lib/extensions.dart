@@ -21,7 +21,9 @@ extension TimeFrameCompare on DateTime? {
 
   bool isSameDay(DateTime? other) {
     if (this == null || other == null) return false;
-    return this!.year == other.year && this!.month == other.month && this!.day == other.day;
+    return this!.year == other.year &&
+        this!.month == other.month &&
+        this!.day == other.day;
   }
 
   bool isSameHour(DateTime? other) {
