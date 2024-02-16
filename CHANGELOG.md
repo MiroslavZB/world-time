@@ -1,7 +1,16 @@
-## 1.1.1
+## 1.2.0
+ - added an extension to check if a date, compared to another, is in the same:
+   - timezone
+   - year
+   - month
+   - week
+   - day
+   - hour
+   - minute
 
-    - Fixed a bug with getting the month's text
-    - Made accessing the texts lists safe
+## 1.1.1
+ - Fixed a bug with getting the month's text
+ - Made accessing the texts lists safe
 ## 1.1.0
 
  - Requires Dart 3.0 or later.
@@ -18,12 +27,12 @@
 ## 1.0.7
 
  - Added **K** and **L** to formatter for text and short text format for _month_
- - Added **"0"** before Months with only one number
+ - Added **0** before Months with only one number
  - Added **W** and **w** to formatter to use _weekday_ and _short weekday_
 
 ## 1.0.6
 
-- Added **"Seconds"** to formatter
+- Added **Seconds** to formatter
 
 ## 1.0.1 - 1.0.5
 

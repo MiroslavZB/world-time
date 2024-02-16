@@ -1,13 +1,16 @@
-## 1.1.0
+## 1.2.0
 
 A Flutter package to get the time of a specific time zone or geo location.  
 It also includes an easy to use formatter for DateTime with customizable formatting.
+Comes with built-in extensions for time frame comparison.
 
 # Features
 
 1. Get current **time** from **EZ Time Zone**
-2. Get current time from **Latitude** and **Longitude**.
-3. Format a **Flutter DateTime object** to a pretty _String formatted_ text to your liking.
+2. Get current time from **Latitude** and **Longitude**
+3. Format a **Flutter DateTime object** to a pretty _String formatted_ text to your liking
+4. Check if a date compared to another is in the same timezone, year, month, week, day, hour or 
+   minute
 
 ![Example App](assets/example.png)
 
