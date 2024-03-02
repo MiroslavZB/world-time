@@ -1,10 +1,14 @@
 const Map<String, String> headers = {
   'Content-type': 'application/json; charset=UTF-8'
 };
+
 const String urlCity = 'https://www.timeapi.io/api/Time/current/zone?timeZone=';
+
 const String urlLocation =
     'https://www.timeapi.io/api/Time/current/coordinate?';
+
 final defaultDateTime = DateTime(1990);
+
 const List<String> monthsText = [
   'January',
   'February',
