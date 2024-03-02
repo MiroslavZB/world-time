@@ -98,6 +98,7 @@ class Worldtime {
       '\\W': dateTime.weekday > 7 ? 'NAN' : weekday[dateTime.weekday - 1],
       '\\w': dateTime.weekday > 7 ? 'NAN' : weekdayShort[dateTime.weekday - 1],
       '\\D': dateTime.day >= 10 ? dateTime.day.toString() : '0${dateTime.day}',
+      '\\d': getOrdinalDateSuffix(dateTime.day),
       '\\M': dateTime.month >= 10
           ? dateTime.month.toString()
           : '0${dateTime.month}',
@@ -131,5 +132,14 @@ class Worldtime {
     });
 
     return formatter;
+  }
+
+  String getOrdinalDateSuffix(int day) {
+    if (day == 0 || day > 31) return '';
+    final lastNum = day % 10;
+    if (lastNum == 1) return 'st';
+    if (lastNum == 2) return 'nd';
+    if (lastNum == 3) return 'rd';
+    return 'th';
   }
 }
