@@ -1,7 +1,7 @@
 name: worldtime
 description: World Time Plugin uses a free public API to access local time info for a specific 
   geolocation or TZ time zone.
-version: 1.2.0
+version: 1.2.1
 homepage: https://github.com/MiroslavZB/world-time.git
 
 environment:

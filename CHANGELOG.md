@@ -1,3 +1,6 @@
+## 1.2.1
+   - added **d** to formatter for including ordinal numbers (days in the form: "1st, 2nd, 3rd")
+
 ## 1.2.0
  - added an extension to check if a date, compared to another, is in the same:
    - timezone
