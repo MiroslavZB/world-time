@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   double lat = 0;
   final TextEditingController longController = TextEditingController();
   final TextEditingController latController = TextEditingController();
-  DateTime now = DateTime(1990);
+  DateTime date = DateTime(1990);
 
   @override
   void dispose() {
@@ -59,14 +59,14 @@ class _HomePageState extends State<HomePage> {
               children: [
                 if (continent == '') ...[
                   Text(
-                    'Result: ${now.toString()}',
+                    'Result: ${date.toString()}',
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'Result formatted ${_worldtimePlugin.format(dateTime: now, formatter: '\\D/\\M/\\Y \\h:\\m')}',
+                    'Result formatted ${_worldtimePlugin.format(dateTime: date, formatter: '\\D/\\M/\\Y \\h:\\m')}',
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -105,13 +105,13 @@ class _HomePageState extends State<HomePage> {
                           FocusManager.instance.primaryFocus?.unfocus();
                           DateTime newDate = await _worldtimePlugin
                               .timeByLocation(latitude: lat, longitude: long);
-                          setState(() => now = newDate);
+                          setState(() => date = newDate);
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  now != DateTime(1990)
-                                      ? 'Time at long: $long, lat: $lat is : $now'
+                                  date != DateTime(1990)
+                                      ? 'Time at long: $long, lat: $lat is : $date'
                                       : 'An Error occurred!',
                                 ),
                               ),
@@ -215,14 +215,14 @@ class _HomePageState extends State<HomePage> {
                                 setState(() => zone = e);
                                 DateTime newDate = await _worldtimePlugin
                                     .timeByCity('$continent/$zone');
-                                setState(() => now = newDate);
+                                setState(() => date = newDate);
 
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        now != DateTime(1990)
-                                            ? 'Time in $continent/$zone is : $now'
+                                        date != DateTime(1990)
+                                            ? 'Time in $continent/$zone is : $date'
                                             : 'An Error occurred!',
                                       ),
                                     ),

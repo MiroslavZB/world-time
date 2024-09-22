@@ -1,3 +1,6 @@
+## 1.2.2
+   - added support for android gradle 8.5.0
+
 ## 1.2.1
    - added **d** to formatter for including ordinal numbers (days in the form: "1st, 2nd, 3rd")
 
