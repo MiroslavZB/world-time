@@ -1,3 +1,6 @@
+## 1.3.0
+- added support for target android sdk 35
+
 ## 1.2.2
    - added support for android gradle 8.5.0
 
